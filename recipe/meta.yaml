@@ -48,11 +48,11 @@ test:
     - write-pickle-to-table --help
     - compute-error-rate --help
     - normalize-feat-lens --help
-    - write-table-to-torch-dir --help
-    - write-torch-dir-to-table --help
+    - write-table-to-torch-dir --help  # [not win]
+    - write-torch-dir-to-table --help  # [not win]
   requires:
     - pip
-    - pytorch
+    - pytorch-cpu  # [not win]  # remove tag when conda-forge does pytorch builds for windows
 
 about:
   home: https://github.com/sdrobert/pydrobert-kaldi
