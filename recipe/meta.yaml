@@ -19,11 +19,12 @@ build:
     - write-table-to-torch-dir = pydrobert.kaldi.command_line:write_table_to_torch_dir
     - write-torch-dir-to-table = pydrobert.kaldi.command_line:write_torch_dir_to_table
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - numpy
     - pip
@@ -33,7 +34,6 @@ requirements:
     - swig >=4.0.2
   run:
     - python
-    - {{ pin_compatible('numpy') }}
   run_constrained:
     - pydrobert-param >0.2.0
     - pydrobert-pytorch >0.2.1
