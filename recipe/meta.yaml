@@ -53,7 +53,7 @@ test:
     - write-torch-dir-to-table --help  # [not win]
   requires:
     - pip
-    - pytorch
+    - pytorch  # [not win]
 
 about:
   home: https://github.com/sdrobert/pydrobert-kaldi
