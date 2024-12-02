@@ -53,7 +53,7 @@ test:
     - write-torch-dir-to-table --help  # [not win]
   requires:
     - pip
-    - pytorch
+    - pytorch  # [not win]  # remove tag when conda-forge does pytorch builds for windows
 
 about:
   home: https://github.com/sdrobert/pydrobert-kaldi
