@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pydrobert-kaldi-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/pydrobert-kaldi-{{ version }}.tar.gz
   sha256: d44aefb58c96141ef705f7cb4fc692c15f348bb2fdef2a1f275589062c83c66a
 
 build:
@@ -19,18 +19,19 @@ build:
     - write-table-to-torch-dir = pydrobert.kaldi.command_line:write_table_to_torch_dir
     - write-torch-dir-to-table = pydrobert.kaldi.command_line:write_torch_dir_to_table
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
   host:
     - numpy
     - pip
     - python
     - setuptools >=45
     - setuptools_scm >=6.2
-    - swig >=4.0.2
+    - swig >=4.0.2,<4.2
   run:
     - python
     - {{ pin_compatible('numpy') }}
@@ -52,7 +53,7 @@ test:
     - write-torch-dir-to-table --help  # [not win]
   requires:
     - pip
-    - pytorch-cpu  # [not win]  # remove tag when conda-forge does pytorch builds for windows
+    - pytorch  # [not win]  # remove tag when conda-forge does pytorch builds for windows
 
 about:
   home: https://github.com/sdrobert/pydrobert-kaldi
