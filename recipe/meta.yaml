@@ -33,6 +33,7 @@ requirements:
     - setuptools_scm >=6.2
     - swig >=4.0.2,<4.2
   run:
+    - numpy <2.0dev0
     - python
   run_constrained:
     - pydrobert-param >0.2.0
@@ -52,7 +53,7 @@ test:
     - write-torch-dir-to-table --help  # [not win]
   requires:
     - pip
-    - pytorch  # [not win]  # remove tag when conda-forge does pytorch builds for windows
+    - pytorch
 
 about:
   home: https://github.com/sdrobert/pydrobert-kaldi
